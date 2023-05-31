@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/customer/delete}" method="post" th:object="${customer}">
+  <label >Name: </label>
+  <input type="text" th:field="*{name}">
+  <input type="text" th:field="*{id}" readonly>
+  <button type="submit">Delete</button>
+</form>
+<a th:href="@{/}"><button>No</button></a>
+</body>
+</html>
