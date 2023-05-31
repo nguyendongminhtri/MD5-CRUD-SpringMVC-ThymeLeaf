@@ -21,6 +21,9 @@
         <a th:text="${ct.name}" th:href="@{/customer/{id}/(id=${ct.id})}"></a>
       </td>
       <td>
+        <img th:src="@{'/image/'+ ${ct.avatar}}" style="width: 100px;height: 100px">
+      </td>
+      <td>
         <a th:href="@{/customer/update/{id}/(id=${ct.id})}"><button>Edit</button></a>
       </td>
       <td>

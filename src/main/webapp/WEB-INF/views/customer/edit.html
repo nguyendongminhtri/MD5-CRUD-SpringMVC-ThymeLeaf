@@ -6,11 +6,30 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/customer/update}" method="post" th:object="${customer}">
+<form th:action="@{/customer/update}" method="post" th:object="${customer}" enctype="multipart/form-data">
     <label >Name: </label>
     <input type="text" th:field="*{name}">
     <input type="text" th:field="*{id}" readonly>
+    <img th:src="@{'/image/'+${avatar}}" width="100px" height="100px" style="border-radius: 50%">
+    <input type="file" th:field="*{avatar}" oninput="previewFile()">
     <button type="submit">Update</button>
 </form>
+<script>
+    function previewFile() {
+        var preview = document.querySelector('img');
+        var file    = document.querySelector('input[type=file]').files[0];
+        var reader  = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+</script>
 </body>
 </html>

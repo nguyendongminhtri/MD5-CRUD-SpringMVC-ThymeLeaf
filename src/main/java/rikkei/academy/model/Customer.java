@@ -9,6 +9,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String avatar;
 
     public Customer() {
     }
@@ -16,6 +17,20 @@ public class Customer {
     public Customer(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Customer(Long id, String name, String avatar) {
+        this.id = id;
+        this.name = name;
+        this.avatar = avatar;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public Long getId() {

@@ -42,6 +42,7 @@ public class CustomerServiceIMPL implements ICustomerService{
         if(customer.getId()!=null){
             Customer customer1 = findById(customer.getId());
             customer1.setName(customer.getName());
+            customer1.setAvatar(customer.getAvatar());
             session.saveOrUpdate(customer1);
         } else {
             session.saveOrUpdate(customer);
